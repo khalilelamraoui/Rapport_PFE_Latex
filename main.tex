@@ -114,12 +114,12 @@
 
         \noindent
         \begin{flushleft}
-              \bf{Presented by :} \hspace{1.1cm} \textbf
-            ~El Amraoui \textsc{Khalil} \hspace{0.25cm} \&  \hspace{0.25cm} ~Tariq \textsc{Mohammed} 
+              \bf{Presented by :} \hspace{1.1cm} \textsc
+            ~EL AMRAOUI \textbf{Khalil} \hspace{0.25cm} \&  \hspace{0.25cm} \textsc~TARIQ \textbf{Mohammed} 
 
         \end{flushleft}
         \begin{flushleft}
-              \textbf{Supervised by :} \hspace{1cm} \textbf{Pr. ~Mohammed \textsc{EL ANSARI }} \hspace{2cm}
+              \textbf{Supervised by :} \hspace{1cm} \textbf{Pr. \textsc{EL ANSARI } ~Mohamed} \hspace{2cm}
             \end{flushleft}
 
     \begin{flushleft}
@@ -172,10 +172,11 @@
 
     In the field of dermatological imaging, the accurate detection and classification of skin lesions is a critical task that significantly impacts early diagnosis and treatment planning for skin cancer. This report presents a comprehensive exploration of deep learning techniques, specifically focusing on the application of YOLOv8 framework for skin lesion detection and classification using dermoscopic images. By leveraging the real-time processing capabilities of YOLO architecture, coupled with advanced mosaic augmentation and class-balancing techniques, this work achieves high levels of accuracy in detecting and classifying melanoma, basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and benign nevus.
 
-    The proposed model was assessed using standard evaluation metrics including accuracy, precision, recall, and mean Average Precision (mAP), demonstrating exceptional performance with 92.3\% accuracy and 89.7\% mAP – showing notable improvement over conventional Faster R-CNN models while operating 17× faster. Additionally, the system was developed as a standalone desktop application using Tkinter, providing dermatologists with an intuitive graphical interface for local image analysis without requiring internet connectivity or cloud dependencies. This offline capability ensures patient data privacy compliance while enabling real-time lesion classification in resource-limited settings.
+    The proposed model was assessed using standard evaluation metrics including accuracy, precision, recall, and F1-score, demonstrating exceptional performance with 93.35\% overall accuracy and class-specific F1-scores up to 0.97 for melanoma detection. Implemented as a standalone desktop application using Tkinter, it provides dermatologists with an intuitive graphical interface for local image analysis without requiring internet connectivity or cloud dependencies. This offline capability ensures patient data privacy compliance while enabling efficient lesion classification in resource-limited settings.
 
     This research contributes to the growing field of AI-assisted dermatology while highlighting YOLO's potential to revolutionize skin cancer diagnostics through efficient, scalable solutions. Future directions for this work include the expansion of the dataset, enhancing the Tkinter GUI for clinical use, and the integration of skin lesion segmentation capabilities to further improve diagnostic accuracy.
-    
+
+
     \newpage
 \begin{center}
     \textbf{\huge Résumé}
@@ -183,7 +184,7 @@
 
     Dans le domaine de l'imagerie dermatologique, la détection et la classification précises des lésions cutanées constituent une tâche cruciale ayant un impact significatif sur le diagnostic précoce et la planification thérapeutique du cancer de la peau. Ce rapport présente une exploration approfondie des techniques d'apprentissage profond, en se concentrant spécifiquement sur l'application du framework YOLOv8 pour la détection et la classification des lésions cutanées à l'aide d'images dermoscopiques. En tirant parti des capacités de traitement en temps réel de l'architecture YOLO, combinées à des techniques avancées d'augmentation de données (mosaic augmentation) et d'équilibrage des classes, ce travail atteint un haut niveau de précision dans la détection et la classification du mélanome, du carcinome basocellulaire (CBC), du carcinome épidermoïde (CE) et du nævus bénin.
 
-    Le modèle proposé a été évalué à l'aide de métriques standard, incluant la précision, le rappel et la moyenne de précision moyenne (mAP), démontrant des performances exceptionnelles avec 92,3\% de précision et 89,7\% de mAP, marquant une amélioration notable par rapport aux modèles conventionnels de type Faster R-CNN tout en fonctionnant 17 fois plus rapidement. Par ailleurs, le système a été développé sous forme d'application desktop autonome utilisant Tkinter, offrant aux dermatologues une interface graphique intuitive pour l'analyse locale d'images sans nécessiter de connexion Internet ou de dépendances cloud. Cette capacité hors ligne garantit le respect de la confidentialité des données des patients tout en permettant une classification en temps réel des lésions dans des environnements aux ressources limitées.
+    Le modèle proposé a été évalué à l'aide de métriques standards incluant l'exactitude, la précision, le rappel et le F1-score, démontrant des performances exceptionnelles avec une exactitude globale de 93,35\% et des F1-scores atteignant 0,97 pour la détection du mélanome. Implémenté sous forme d'application desktop autonome utilisant Tkinter, il fournit aux dermatologues une interface graphique intuitive pour l'analyse locale d'images sans nécessiter de connectivité internet ni dépendances cloud. Cette capacité hors-ligne garantit la conformité aux réglementations sur la confidentialité des données médicales tout en permettant une classification efficace des lésions dans des environnements à ressources limitées.
 
     Cette recherche contribue au domaine croissant de la dermatologie assistée par l'IA, tout en soulignant le potentiel de YOLO à révolutionner le diagnostic du cancer de la peau grâce à des solutions efficaces et évolutives. Les perspectives futures de ce travail incluent l'élargissement du jeu de données, l'amélioration de l'interface Tkinter pour un usage clinique et l'intégration de fonctionnalités de segmentation des lésions cutanées afin d'améliorer encore la précision diagnostique.
     
@@ -194,51 +195,53 @@
 
 \chapter{General Introduction}
     \section{Context}
-    Skin cancer, particularly melanoma, is one of the most prevalent and deadly cancers globally, with over 1.5 million new cases diagnosed annually~\cite{intro1}. Early and accurate diagnosis is critical, as melanoma alone accounts for 75\% of skin cancer-related deaths~\cite{intro2}. Dermoscopic imaging has emerged as a vital tool for early detection, but diagnostic accuracy heavily depends on dermatologists’ expertise, which varies widely across regions~\cite{intro3}. The integration of artificial intelligence (AI) into dermatology offers a transformative solution, enabling scalable, consistent, and rapid analysis of dermoscopic images. This project addresses the urgent need for automated systems to reduce diagnostic delays and human error, particularly in underserved areas with limited access to specialists.
+    Skin cancer is one of the most prevalent forms of cancer worldwide, accounting for a significant number of cancer diagnoses annually. Among its various types, melanoma poses the highest threat due to its aggressive nature and high mortality rate if not detected early. Early and accurate diagnosis of skin lesions, particularly melanoma, is vital to improving patient outcomes and survival rates. Dermoscopic imaging, a non-invasive technique that magnifies skin structures, has become a cornerstone in dermatology for identifying and classifying skin lesions. However, the interpretation of dermoscopic images is a challenging task, requiring extensive training and expertise, and is often subject to human error \cite{intro1}\cite{intro2}.
     % \addcontentsline{toc}{chapter}{Introduction générale}
+    
+    The emergence of artificial intelligence (AI) has revolutionized various domains, including healthcare. AI-powered systems have shown remarkable potential in analyzing medical images, aiding clinicians in diagnosing diseases more accurately and efficiently. Leveraging AI for skin lesion classification offers a promising avenue to bridge the gap in expertise and resources, particularly in underserved regions with limited access to dermatologists. By automating the process of analyzing dermoscopic images, AI systems can assist in early detection and treatment, ultimately saving lives\cite{intro3}\cite{intro4}.
+    \newpage
 
     \section{Problem Statement}
-    Despite advancements in medical imaging, classifying skin lesions remains challenging due to:
+    Despite advancements in dermoscopic imaging and AI, developing a reliable classification system for skin lesions remains a challenging endeavor. Medical image classification poses unique difficulties, such as:
     \begin{enumerate}
-        \item \textbf{Visual Complexity:} High intra-class variability (e.g., benign nevi resembling melanoma) and subtle inter-class differences.
-        \item \textbf{Data Limitations:} Scarcity of large, annotated datasets and class imbalance (e.g., rare malignancies underrepresented).
-        \item \textbf{Interpretability Gaps:} Many AI models function as "black boxes," limiting trust among clinicians~\cite{intro4}.
-        \item Existing systems often prioritize binary classification (malignant vs. benign), neglecting clinically relevant multi-class categorization (e.g., melanoma vs. basal cell carcinoma), which is essential for tailored treatment plans~\cite{intro5}.
+        \item Variability in lesion appearance due to differences in color, texture, and shape.
+        \item The imbalance in datasets, where certain lesion types are underrepresented, leading to biased models.
+        \item The need for high accuracy and specificity to minimize false positives and negatives, as misdiagnoses can have severe consequences.
+        \item Integration challenges requiring interpretability and trustworthiness.
     \end{enumerate}
+    These challenges underscore the need for robust AI systems capable of handling dermoscopic image nuances\cite{intro5}\cite{intro6}.
 
     \section{Objectives}
-    This project aims to:
+    The primary objectives of this project are:
     \begin{enumerate}
-        \item \textbf{Develop a multi-class classification system} for skin lesions using dermoscopic images, focusing on melanoma, basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and benign nevi.
-        \item \textbf{Optimize model performance} through transfer learning and advanced architectures (e.g., Convolutional Neural Networks (CNNs), Vision Transformers) to achieve an accuracy of at least 90\%.
-        \item \textbf{Enhance clinical applicability} by integrating explainability tools such as Grad-CAM to visualize and interpret the model's decision-making processes.
-        \item \textbf{Address class imbalance} by employing data augmentation techniques and generating synthetic data using methods like Generative Adversarial Networks (GANs).
+        \item \textbf{Develop a YOLOv8-Based Classification System} To design and implement a classification system for dermoscopic images using YOLOv8, leveraging its state-of-the-art performance to identify and categorize various skin lesion types effectively \cite{intro7}\cite{intro8}.
+        \item \textbf{Optimize Model Selection and Performance} To evaluate and compare the performance of YOLOv8 model variants (n, m, x) based on metrics such as accuracy, specificity, and generalizability, identifying the optimal variant for the classification task \cite{intro9}.
+        \item \textbf{Address Dataset Challenges} To mitigate challenges such as class imbalance and variability in lesion appearance by applying advanced preprocessing techniques, data augmentation, and model fine-tuning for enhanced classification results \cite{intro8}\cite{intro10}.
+        \item \textbf{Document Challenges and Recommendations} To document the development process, highlight the challenges encountered, and provide actionable recommendations for improving YOLOv8-based classification systems in medical imaging \cite{intro7}\cite{intro9}.
     \end{enumerate}
 
     \section{Structure of the Report}
     This report is organized as follows:
 
     \begin{itemize}
-        \item \textbf{Chapter 1: Introduction} \\
+        \item \textbf{Chapter 1: General Introduction} \\
         Outlines the clinical and technical context of skin lesion classification. Defines the problem statement, objectives, and significance of the project.
 
-        \item \textbf{Chapter 2: Literature Review} \\
-        Surveys existing deep learning approaches for medical image analysis. Identifies gaps in current methodologies for multi-class skin lesion classification.
+        \item \textbf{Chapter 2: Deep Learning Overview} \\
+        Provides a comprehensive overview of deep learning concepts, focusing on computer vision applications. Discusses classification techniques and their relevance to medical imaging.
 
-        \item \textbf{Chapter 3: Dataset and Preprocessing} \\
-        Describes the dermoscopic image dataset (e.g., HAM10000, ISIC Archive). Details preprocessing steps, including augmentation, normalization, and class balancing.
+        \item \textbf{Chapter 3: State of the Art} \\
+        modify !!!!
 
-        \item \textbf{Chapter 4: Methodology} \\
-        Explains the proposed deep learning architecture (e.g., CNN, Vision Transformer). Discusses training protocols, transfer learning strategies, and evaluation metrics.
+        \item \textbf{Chapter 4: Proposed Solution: YOLOv8} \\
+        Describes the YOLOv8 architecture and its advantages for skin lesion classification. Details the dataset used, preprocessing steps, and model training process.
 
-        \item \textbf{Chapter 5: Experiments and Results} \\
-        Presents experimental setups (e.g., hyperparameters, hardware). Analyzes model performance (accuracy, sensitivity, specificity) and compares it to state-of-the-art methods.
+        \item \textbf{Chapter 5: Discussion} \\
+        Analyzes the results of the YOLOv8 model, comparing its performance with existing methods. Discusses the implications of findings for clinical practice and future research directions.
 
-        \item \textbf{Chapter 6: Discussion} \\
-        Interprets results in the context of clinical applicability. Addresses limitations (e.g., dataset bias, generalizability) and ethical considerations.
+        \item \textbf{Chapter 6: Conclusion} \\
+        Summarizes the key findings of the project, reflecting on the objectives achieved and the challenges encountered. Provides recommendations for future work in skin lesion classification using AI.
 
-        \item \textbf{Chapter 7: Conclusion and Future Work} \\
-        Summarizes key findings and their implications for dermatology. Proposes extensions, such as real-time deployment or integration with telemedicine platforms.
     \end{itemize}
 
 
@@ -308,81 +311,97 @@
     The dataset includes dermoscopic images of these lesions, emphasizing the critical need for accurate classification to reduce unnecessary biopsies for benign cases like nevus while ensuring early detection of malignancies~\cite{dl15}.
 
 
+\chapter{}
 
 \begin{thebibliography}{99}
 
 \addcontentsline{toc}{chapter}{Bibliographie}
 
 
-\bibitem{intro1}
- \emph{\url{https://www.who.int/news-room/fact-sheets/detail/skin-cancer}}
+\bibitem[Sung21]{intro1}
+ \emph{Sung, H. et al. (2021). Global Cancer Statistics 2020. CA: A Cancer Journal for Clinicians.}
 
-\bibitem{intro2}
- \emph{\url{https://www.cancer.org/cancer/melanoma-skin-cancer/about/key-statistics.html}}
+\bibitem[Kittler16]{intro2}
+ \emph{Kittler, H. et al. (2016). Standardization of Terminology in Dermoscopy. Journal of the American Academy of Dermatology.}
 
-\bibitem{intro3}
- \emph{\url{https://doi.org/10.1038/nature21056}}
+\bibitem[Esteva17]{intro3}
+ \emph{Esteva, A. et al. (2017). Dermatologist-Level Classification of Skin Cancer with Deep Neural Networks. Nature.}
 
-\bibitem{intro4}
- \emph{\url{https://doi.org/10.1038/s41591-020-0942-0}}
+\bibitem[Brinker19]{intro4}
+ \emph{Brinker, T. J. et al. (2019). Deep Learning Outperformed 136 of 157 Dermatologists. European Journal of Cancer.}
 
-\bibitem{intro5}
- \emph{\url{https://doi.org/10.1111/jdv.15055}}
+\bibitem[Tschandl18]{intro5}
+ \emph{Tschandl, P. et al. (2018). The HAM10000 Dataset. Scientific Data.}
 
+\bibitem[Haenssle18]{intro6}
+ \emph{Haenssle, H. A. et al. (2018). Man Against Machine. Journal of the European Academy of Dermatology and Venereology.}
 
+\bibitem[LeCun15]{intro7}
+ \emph{LeCun, Y., Bengio, Y., and Hinton, G. (2015). Deep learning. Nature, 521(7553), 436-444.}
 
-\bibitem{dl}
- \emph{\url{https://www.deeplearningbook.org/}}
+\bibitem[Esteva17b]{intro8}
+ \emph{Esteva, A., Kuprel, B., Novoa, R. A., et al. (2017). Dermatologist-level classification of skin cancer with deep neural networks. Nature, 542(7639), 115-118.}
 
-\bibitem{dl2}
- \emph{\url{https://doi.org/10.1038/nature14539}}
+\bibitem[Howard20]{intro9}
+ \emph{Howard, J., and Gugger, S. (2020). Deep Learning for Coders with fastai and PyTorch. O'Reilly Media.}
 
-\bibitem{dl3}
- \emph{\url{https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf}}
-
-\bibitem{dl4}
- \emph{\url{https://arxiv.org/abs/1505.04597}}
-
-\bibitem{dl5}
- \emph{\url{https://doi.org/10.1038/nature21056}}
-
-\bibitem{dl6}
- \emph{\url{https://arxiv.org/abs/1512.03385}}
-
-\bibitem{dl7}
- \emph{\url{https://doi.org/10.1016/j.media.2017.07.005}}
-
-\bibitem{dl8}
- \emph{\url{https://doi.org/10.1001/jama.2016.17216}}
-
-\bibitem{dl9}
- \emph{\url{https://doi.org/10.1038/s41586-021-03819-2}}
-
-\bibitem{dl10}
- \emph{\url{https://doi.org/10.1038/s41568-019-0192-x}}
-
-\bibitem{dl11}
- \emph{\url{https://doi.org/10.1038/s41568-019-0192-x}}
-
-\bibitem{dl12}
- \emph{\url{https://www.cancer.org/cancer/skin-cancer.html}}
-
-\bibitem{dl13}
- \emph{\url{https://doi.org/10.1001/archdermatol.2010.19}}
-
-\bibitem{dl14}
- \emph{\url{https://doi.org/10.1038/sdata.2018.161}}
-
-\bibitem{dl15}
- \emph{\url{https://doi.org/10.1016/j.jaad.2017.08.016}}
+\bibitem[ISIC]{intro10}
+ \emph{ISIC Archive: International Skin Imaging Collaboration. Retrieved from \url{https://www.isic-archive.com}}
 
 
 
+\bibitem[Goodfellow16]{dl}
+ \emph{Goodfellow, I., Bengio, Y., and Courville, A. (2016). Deep Learning. MIT Press.}
 
-\bibitem{dlImg}
+\bibitem[LeCun15]{dl2}
+ \emph{LeCun, Y., Bengio, Y., and Hinton, G. (2015). Deep Learning. Nature, 521(7553), 436–444.}
+
+\bibitem[Ronneberger15]{dl3}
+ \emph{Ronneberger, O., Fischer, P., and Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. MICCAI.}
+
+\bibitem[Ronneberger15b]{dl4}
+ \emph{Ronneberger, O., Fischer, P., and Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. MICCAI.}
+
+\bibitem[Esteva17b]{dl5}
+ \emph{Esteva, A., et al. (2017). Dermatologist-Level Classification of Skin Cancer with Deep Neural Networks. Nature, 542(7639), 115–118.}
+
+\bibitem[He16]{dl6}
+ \emph{He, K., et al. (2016). Deep Residual Learning for Image Recognition. CVPR.}
+
+\bibitem[Litjens17]{dl7}
+ \emph{Litjens, G., et al. (2017). A Survey on Deep Learning in Medical Image Analysis. Medical Image Analysis, 42, 60–88.}
+
+\bibitem[Gulshan16]{dl8}
+ \emph{Gulshan, V., et al. (2016). Development and Validation of a Deep Learning Algorithm for Detection of Diabetic Retinopathy in Retinal Fundus Photographs. JAMA, 316(22), 2402–2410.}
+
+\bibitem[Jumper21]{dl9}
+ \emph{Jumper, J., et al. (2021). Highly Accurate Protein Structure Prediction with AlphaFold. Nature, 596(7873), 583–589.}
+
+\bibitem[Bera19]{dl10}
+ \emph{Bera, K., et al. (2019). Artificial Intelligence in Digital Pathology. Nature Reviews Cancer, 19(12), 703–715.}
+
+\bibitem[Topol19]{dl11}
+ \emph{Topol, E. J. (2019). High-Performance Medicine: The Convergence of Human and Artificial Intelligence. Nature Medicine, 25(1), 44–56.}
+
+\bibitem[ACS23]{dl12}
+ \emph{American Cancer Society. (2023). Skin Cancer Facts and Statistics.}
+
+\bibitem[Rogers15]{dl13}
+ \emph{Rogers, H. W., et al. (2015). Incidence Estimate of Nonmelanoma Skin Cancer in the U.S., 2006. Archives of Dermatology, 146(3), 283–287.}
+
+\bibitem[Tschandl18b]{dl14}
+ \emph{Tschandl, P., et al. (2018). The HAM10000 Dataset: A Large Collection of Multi-Source Dermatoscopic Images of Common Pigmented Skin Lesions. Scientific Data, 5, 180161.}
+
+\bibitem[Marchetti18]{dl15}
+ \emph{Marchetti, M. A., et al. (2018). Results of the 2016 International Skin Imaging Collaboration International Symposium on Biomedical Imaging Challenge: Comparison of the Accuracy of Computer Algorithms to Dermatologists for the Diagnosis of Melanoma from Dermoscopic Images. Journal of the American Academy of Dermatology, 78(2), 270–277.}
+
+
+
+
+\bibitem[DL]{dlImg}
  \emph{\url{https://levelup.gitconnected.com/introduction-to-neural-networks-and-deep-learning-3f44e3e50196}}
 
- \bibitem{cnnImg}
+ \bibitem[CNN]{cnnImg}
     \emph{\url{https://www.nomidl.com/computer-vision/how-to-build-a-convolutional-neural-network-for-computer-vision/}}
 
 
