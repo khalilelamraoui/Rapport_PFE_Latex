@@ -1,0 +1,1 @@
+!yolo task=classify mode=train model=yolov8m-cls.pt data='skin-1' epochs=50 imgsz=640

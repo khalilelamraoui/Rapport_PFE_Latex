@@ -149,7 +149,7 @@
     \textbf{\huge Abstract}
 \end{center}
 
-    In the field of dermatological imaging, the accurate classification of skin lesions is a critical task that significantly impacts early diagnosis and treatment planning for skin cancer. This report presents a comprehensive exploration of deep learning techniques, specifically focusing on the application of the YOLOv8 framework for skin lesion classification using dermoscopic images. By leveraging the real-time processing capabilities of the YOLO architecture and advanced class-balancing techniques, this work achieves high levels of accuracy in classifying melanoma, basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and benign nevus.
+    In the field of dermatological imaging, the accurate classification of skin lesions is a critical task that significantly impacts early diagnosis and treatment planning for skin cancer. This report presents a comprehensive exploration of deep learning techniques, specifically focusing on the application of the YOLOv8 framework for skin lesion classification using dermoscopic images. By leveraging the real-time processing capabilities of the YOLO architecture and advanced class-balancing techniques, this work achieves high levels of accuracy in classifying melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus.
 
     The proposed model was assessed using standard evaluation metrics including accuracy, precision, recall, and F1-score, demonstrating exceptional performance with 93.35\% overall accuracy and class-specific F1-scores up to 0.97 for melanoma classification. Implemented as a standalone desktop application using Tkinter, it provides dermatologists with an intuitive graphical interface for local image analysis without requiring internet connectivity or cloud dependencies. This offline capability ensures patient data privacy compliance while enabling efficient lesion classification in resource-limited settings.
 
@@ -160,7 +160,7 @@
     \textbf{\huge Résumé}
 \end{center}
 
-    Dans le domaine de l'imagerie dermatologique, la classification précise des lésions cutanées constitue une tâche cruciale ayant un impact significatif sur le diagnostic précoce et la planification thérapeutique du cancer de la peau. Ce rapport présente une exploration approfondie des techniques d'apprentissage profond, en se concentrant spécifiquement sur l'application du framework YOLOv8 pour la classification des lésions cutanées à l'aide d'images dermoscopiques. En tirant parti des capacités de traitement en temps réel de l'architecture YOLO et de techniques avancées d'équilibrage des classes, ce travail atteint un haut niveau de précision dans la classification du mélanome, du carcinome basocellulaire (CBC), du carcinome épidermoïde (CE) et du nævus bénin.
+    Dans le domaine de l'imagerie dermatologique, la classification précise des lésions cutanées est une tâche cruciale qui impacte significativement le diagnostic précoce et la planification du traitement du cancer de la peau. Ce rapport présente une exploration approfondie des techniques d'apprentissage profond, en se concentrant spécifiquement sur l'application du cadre YOLOv8 pour la classification des lésions cutanées à l'aide d'images dermoscopiques. En tirant parti des capacités de traitement en temps réel de l'architecture YOLO et des techniques avancées d'équilibrage des classes, ce travail atteint des niveaux élevés de précision dans la classification du mélanome, du carcinome basocellulaire (BCC), de la kératose bénigne (BK) et du nævus bénin.
 
     Le modèle proposé a été évalué à l'aide de métriques standards incluant l'exactitude, la précision, le rappel et le F1-score, démontrant des performances exceptionnelles avec une exactitude globale de 93,35\% et des F1-scores atteignant 0,97 pour la classification du mélanome. Implémenté sous forme d'application desktop autonome utilisant Tkinter, il fournit aux dermatologues une interface graphique intuitive pour l'analyse locale d'images sans nécessiter de connectivité internet ni dépendances cloud. Cette capacité hors-ligne garantit la conformité aux réglementations sur la confidentialité des données médicales tout en permettant une classification efficace des lésions dans des environnements à ressources limitées.
 
@@ -172,14 +172,17 @@
 
 \chapter*{List of Abbreviations}
 \addcontentsline{toc}{chapter}{List of Abbreviations}
-\begin{tabular}{ll}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{3cm}p{11cm}@{}}
 \textbf{FSM}     & Faculté des Sciences Meknès \\
 \textbf{AI}      & Artificial Intelligence \\
 \textbf{ML}      & Machine Learning \\
 \textbf{DL}      & Deep Learning \\
 \textbf{BCC}     & Basal Cell Carcinoma \\
 \textbf{BK}      & Benign Keratosis \\
-\textbf{SCC}     & Squamous Cell Carcinoma \\
 \textbf{CNN}     & Convolutional Neural Network \\
 \textbf{CV}      & Computer Vision \\
 \textbf{GUI}     & Graphical User Interface \\
@@ -203,6 +206,7 @@
 \textbf{hsv} & Hue, Saturation, Value \\
 \textbf{avg} & Average \\
 \end{tabular}
+\end{table}
 
 \newpage
 
@@ -300,7 +304,7 @@
     In medical imaging projects such as skin cancer diagnosis, classification tasks are essential for:
     \begin{itemize}
         \item \textbf{Binary Classification:} Distinguishing between two classes, such as malignant vs. benign lesions.
-        \item \textbf{Multi-Class Classification:} Identifying specific subtypes of skin cancer (e.g., melanoma, basal cell carcinoma, squamous cell carcinoma, nevus)~\cite{dl6}.
+        \item \textbf{Multi-Class Classification:} Identifying specific subtypes of skin cancer (e.g., melanoma, basal cell carcinoma, benign keratosis, nevus)~\cite{dl6}.
     \end{itemize}
 
     \subsection*{Performance Metrics}
@@ -490,7 +494,7 @@
     YOLOv8 is the latest evolution in the YOLO (You Only Look Once) family, designed for high-performance image classification and detection tasks. It features a unified architecture that supports classification, detection, and segmentation, with improvements in speed, accuracy, and flexibility. YOLOv8 leverages advanced neural network design, efficient data loading, and transfer learning, making it suitable for medical imaging applications where both accuracy and inference speed are critical~\cite{ultralytics23}. The model is easy to deploy and supports export to multiple formats (ONNX, TensorRT, etc.), facilitating integration into various platforms.
     
     \section{Dataset}
-    The dataset used in this project was sourced from Roboflow\footnote{\url{https://universe.roboflow.com/bigdata-xv5t7/skin-9nkfv}} and is based on the HAM10000 collection~\cite{intro5}. It contains dermoscopic images categorized into four classes: melanoma, basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and benign nevus. The dataset was split into training, validation, and test sets, each organized into subfolders by class.
+    The dataset used in this project was sourced from Roboflow\footnote{\url{https://universe.roboflow.com/bigdata-xv5t7/skin-9nkfv}} and is based on the HAM10000 collection~\cite{intro5}. It contains dermoscopic images categorized into four classes: melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus. The dataset was split into training, validation, and test sets, each organized into subfolders by class.
     
     \textbf{Dataset Structure:}
     \begin{center}
@@ -550,6 +554,14 @@
         \captionof{figure}{Training command for YOLOv8 classification model.}
     \end{center}
 
+    % \definecolor{backcolour}{rgb}{0.95,0.95,0.92} % Add this to your preamble if you want a background
+    % \lstinputlisting[
+    %     caption={Training command for YOLOv8 classification model.},
+    %     language=Python,
+    %     backgroundcolor=\color{backcolour},
+    %     basicstyle=\ttfamily\color{black}
+    % ]{code/train.txt}
+
     \textbf{Validation Command:}
 
     \begin{center}
@@ -593,18 +605,17 @@
     
     \subsection*{Classification Report}
     \begin{verbatim}
-                   precision    recall  f1-score   support
-    
-          BCC         0.94      0.92      0.93       XX
-          Melanoma    0.97      0.97      0.97       XX
-          Nevus       0.92      0.94      0.93       XX
-          SCC         0.91      0.90      0.90       XX
-    
-        accuracy                          0.93      XXX
-       macro avg      0.93      0.93      0.93      XXX
-    weighted avg      0.93      0.93      0.93      XXX
+                          precision    recall  f1-score   support
+
+Basal Cell Carcinoma       0.94      0.96      0.95       358
+    Benign Keratosis       0.88      0.84      0.86       223
+            Melanoma       0.99      0.94      0.97       362
+               Nevus       0.91      0.95      0.93       350
+
+            accuracy                           0.93      1293
+           macro avg       0.93      0.92      0.93      1293
+        weighted avg       0.93      0.93      0.93      1293
     \end{verbatim}
-    (Replace \texttt{XX} and \texttt{XXX} with your actual support numbers.)
 
     \subsection*{Confusion Matrix}
     \begin{center}
@@ -624,7 +635,7 @@
 
     \subsection*{Training Curves}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{Pics/results.png}
+        \includegraphics[width=0.7\textwidth]{Pics/cnn1.png}
         \captionof{figure}{Training and Validation Accuracy/Loss Curves}
     \end{center}
 
@@ -688,7 +699,7 @@
     The application of YOLOv8 for skin lesion classification in dermoscopic images has demonstrated several notable strengths, both in terms of technical performance and practical deployment:
     
         \subsection*{High Classification Accuracy}
-        The YOLOv8-based classifier achieved a test accuracy of 93.35\%, with an F1-score of 0.97 for melanoma. This high level of accuracy is particularly significant in the context of medical diagnostics, where false negatives can have severe consequences. The model’s ability to distinguish between melanoma, basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and benign nevus demonstrates its robustness and generalizability across multiple lesion types.
+        The YOLOv8-based classifier achieved a test accuracy of 93.35\%, with an F1-score of 0.97 for melanoma. This high level of accuracy is particularly significant in the context of medical diagnostics, where false negatives can have severe consequences. The model’s ability to distinguish between melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus demonstrates its robustness and generalizability across multiple lesion types.
         
         \subsection*{Real-Time Inference and Efficiency}
         YOLOv8 is designed for real-time applications, and this project leveraged its efficient architecture to enable rapid inference. The model’s lightweight design and optimized computation allow for deployment on standard desktop hardware without the need for specialized GPUs in the inference phase. This is crucial for clinical environments where quick decision-making is essential.
@@ -874,7 +885,8 @@
 
 
 
-
+\bibitem[Ultralytics23]{ultralytics23}
+ \emph{Ultralytics. (2023). YOLOv8: Cutting-Edge Object Detection Models. \url{https://docs.ultralytics.com/models/yolov8}.}
 
 % \bibitem[DL]{dlImg}
 %  \emph{\url{https://levelup.gitconnected.com/introduction-to-neural-networks-and-deep-learning-3f44e3e50196}}
