@@ -1,0 +1,2 @@
+%cd {HOME}
+!yolo task=classify mode=val model={HOME}/khalil_93/best.pt data='skin-1'

@@ -16,6 +16,11 @@
 \usepackage{xcolor}
 \usepackage{xurl}
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
@@ -144,31 +149,38 @@
 
     Finally, our deepest gratitude is reserved for our family and friends, whose unwavering support and encouragement have been our greatest source of strength. Their belief in us has been invaluable in overcoming the challenges faced during our undergraduate studies. We truly could not have reached this point without them.
 
-\newpage
-\begin{center}
-    \textbf{\huge Abstract}
-\end{center}
-
-    In the field of dermatological imaging, the accurate classification of skin lesions is a critical task that significantly impacts early diagnosis and treatment planning for skin cancer. This report presents a comprehensive exploration of deep learning techniques, specifically focusing on the application of the YOLOv8 framework for skin lesion classification using dermoscopic images. By leveraging the real-time processing capabilities of the YOLO architecture and advanced class-balancing techniques, this work achieves high levels of accuracy in classifying melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus.
-
-    The proposed model was assessed using standard evaluation metrics including accuracy, precision, recall, and F1-score, demonstrating exceptional performance with 93.35\% overall accuracy and class-specific F1-scores up to 0.97 for melanoma classification. Implemented as a standalone desktop application using Tkinter, it provides dermatologists with an intuitive graphical interface for local image analysis without requiring internet connectivity or cloud dependencies. This offline capability ensures patient data privacy compliance while enabling efficient lesion classification in resource-limited settings.
-
-    This research contributes to the growing field of AI-assisted dermatology while highlighting YOLO's potential to revolutionize skin cancer diagnostics through efficient, scalable solutions. Future directions for this work include the expansion of the dataset, enhancing the Tkinter GUI for clinical use, and the integration of skin lesion segmentation capabilities to further improve diagnostic accuracy.
-
     \newpage
-\begin{center}
+    \begin{center}
+        \textbf{\huge Abstract}
+    \end{center}
+    
+    In the field of dermatological imaging, the accurate classification of skin lesions is a critical task that significantly impacts early diagnosis and treatment planning for skin cancer. This report presents a comprehensive exploration of deep learning techniques, specifically focusing on the application of the YOLOv8 framework for multi-class skin lesion classification using dermoscopic images. By leveraging the real-time processing capabilities of the YOLO architecture, advanced data augmentation strategies, and transfer learning from pretrained weights, this work achieves high levels of accuracy in classifying melanoma, basal cell carcinoma (BCC), Benign Keratosis (BK), and benign melanocytic lesions (nevus).
+    
+    The dataset was significantly expanded through a comprehensive augmentation pipeline including horizontal/vertical flips, rotations (90°, 180°, 270°), and brightness enhancement. The model was assessed using standard evaluation metrics including accuracy, precision, recall, and F1-score. 
+    
+    Implemented as a standalone desktop application using Tkinter, the system provides dermatologists with an intuitive graphical interface for local image analysis without requiring internet connectivity or cloud dependencies. This offline capability ensures patient data privacy compliance while enabling efficient lesion classification in resource-limited settings. The GUI displays prediction results with confidence scores and enables comparison with true class labels for validation purposes.
+    
+    This research contributes to the growing field of AI-assisted dermatology while highlighting YOLOv8's potential to revolutionize skin cancer diagnostics through efficient, scalable solutions. Future directions include dataset expansion, GUI enhancement for clinical workflows, and integration of explainability features to build trust among medical professionals.
+    
+    \newpage
+    \begin{center}
     \textbf{\huge Résumé}
-\end{center}
+    \end{center}
+    
+    Dans le domaine de l'imagerie dermatologique, la classification précise des lésions cutanées est une tâche critique qui impacte significativement le diagnostic précoce et la planification du traitement du cancer de la peau. Ce rapport présente une exploration approfondie des techniques d'apprentissage profond, en se concentrant spécifiquement sur l'application du framework YOLOv8 pour la classification multi-classes des lésions cutanées utilisant des images dermoscopiques. En tirant parti des capacités de traitement en temps réel de l'architecture YOLO, des stratégies d'augmentation de données avancées et de l'apprentissage par transfert à partir de poids pré-entraînés, ce travail atteint des niveaux élevés de précision dans la classification du mélanome, du carcinome basocellulaire (BCC), de la kératose bénigne (BK) et des lésions mélanocytaires bénignes (nævus).
 
-    Dans le domaine de l'imagerie dermatologique, la classification précise des lésions cutanées est une tâche cruciale qui impacte significativement le diagnostic précoce et la planification du traitement du cancer de la peau. Ce rapport présente une exploration approfondie des techniques d'apprentissage profond, en se concentrant spécifiquement sur l'application du cadre YOLOv8 pour la classification des lésions cutanées à l'aide d'images dermoscopiques. En tirant parti des capacités de traitement en temps réel de l'architecture YOLO et des techniques avancées d'équilibrage des classes, ce travail atteint des niveaux élevés de précision dans la classification du mélanome, du carcinome basocellulaire (BCC), de la kératose bénigne (BK) et du nævus bénin.
+    Le jeu de données a été significativement élargi grâce à un pipeline d'augmentation complet incluant les retournements horizontaux/verticaux, les rotations (90°, 180°, 270°) et l'amélioration de la luminosité. Le modèle a été évalué en utilisant des métriques d'évaluation standards incluant l'exactitude, la précision, le rappel et le F1-score.
+    
+    Implémenté comme une application desktop autonome utilisant Tkinter, le système fournit aux dermatologues une interface graphique intuitive pour l'analyse locale d'images sans nécessiter de connectivité internet ou de dépendances cloud. Cette capacité hors-ligne assure la conformité à la confidentialité des données des patients tout en permettant une classification efficace des lésions dans des environnements à ressources limitées. L'interface graphique affiche les résultats de prédiction avec des scores de confiance et permet la comparaison avec les vraies étiquettes de classe à des fins de validation.
+    
+    Cette recherche contribue au domaine croissant de la dermatologie assistée par l'IA tout en soulignant le potentiel de YOLOv8 à révolutionner le diagnostic du cancer de la peau grâce à des solutions efficaces et évolutives. Les directions futures incluent l'expansion du jeu de données, l'amélioration de l'interface graphique pour les flux de travail cliniques et l'intégration de fonctionnalités d'explicabilité pour renforcer la confiance parmi les professionnels de la santé.
 
-    Le modèle proposé a été évalué à l'aide de métriques standards incluant l'exactitude, la précision, le rappel et le F1-score, démontrant des performances exceptionnelles avec une exactitude globale de 93,35\% et des F1-scores atteignant 0,97 pour la classification du mélanome. Implémenté sous forme d'application desktop autonome utilisant Tkinter, il fournit aux dermatologues une interface graphique intuitive pour l'analyse locale d'images sans nécessiter de connectivité internet ni dépendances cloud. Cette capacité hors-ligne garantit la conformité aux réglementations sur la confidentialité des données médicales tout en permettant une classification efficace des lésions dans des environnements à ressources limitées.
-
-    Cette recherche contribue au domaine croissant de la dermatologie assistée par l'IA, tout en soulignant le potentiel de YOLO à révolutionner le diagnostic du cancer de la peau grâce à des solutions efficaces et évolutives. Les perspectives futures de ce travail incluent l'élargissement du jeu de données, l'amélioration de l'interface Tkinter pour un usage clinique et l'intégration de fonctionnalités de segmentation des lésions cutanées afin d'améliorer encore la précision diagnostique.  
 
 \tableofcontents
 \listoffigures
 \listoftables
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{List of Listings}
 
 \chapter*{List of Abbreviations}
 \addcontentsline{toc}{chapter}{List of Abbreviations}
@@ -232,7 +244,6 @@
     The primary objectives of this project are:
     \begin{enumerate}
         \item \textbf{Develop a YOLOv8-Based Classification System} To design and implement a classification system for dermoscopic images using YOLOv8, leveraging its state-of-the-art performance to identify and categorize various skin lesion types effectively~\cite{ultralytics23}.
-        \item \textbf{Optimize Model Selection and Performance} To evaluate and compare the performance of YOLOv8 model variants (n, m, x) based on metrics such as accuracy, specificity, and generalizability, identifying the optimal variant for the classification task~\cite{intro9}.
         \item \textbf{Address Dataset Challenges} To mitigate challenges such as class imbalance and variability in lesion appearance by applying advanced preprocessing techniques, data augmentation, and model fine-tuning for enhanced classification results~\cite{dl7}.
         \item \textbf{Document Challenges and Recommendations} To document the development process, highlight the challenges encountered, and provide actionable recommendations for improving YOLOv8-based classification systems in medical imaging~\cite{intro5}.
     \end{enumerate}
@@ -250,7 +261,7 @@
         \item \textbf{Chapter 3: State of the Art} \\
         Surveys recent advances in skin lesion classification, including traditional and deep learning approaches, with a focus on frameworks like MelaNet.
 
-        \item \textbf{Chapter 4: Proposed Solution: YOLOv8} \\
+        \item \textbf{Chapter 4: Used Solution: YOLOv8} \\
         Details the YOLOv8 architecture, dataset preparation, training process, evaluation metrics, results, and the development of a desktop GUI application.
 
         \item \textbf{Chapter 5: Discussion} \\
@@ -307,41 +318,6 @@
         \item \textbf{Multi-Class Classification:} Identifying specific subtypes of skin cancer (e.g., melanoma, basal cell carcinoma, benign keratosis, nevus)~\cite{dl6}.
     \end{itemize}
 
-    \subsection*{Performance Metrics}
-    To evaluate the effectiveness of classification models, several performance metrics are commonly used:
-
-    \begin{itemize}
-        \item \textbf{Accuracy:} The proportion of correctly classified samples among all samples.
-        \[
-            \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
-        \]
-        \item \textbf{Sensitivity (Recall or True Positive Rate):} The proportion of actual positives correctly identified.
-        \[
-            \text{Sensitivity} = \frac{TP}{TP + FN}
-        \]
-        \item \textbf{Specificity (True Negative Rate):} The proportion of actual negatives correctly identified.
-        \[
-            \text{Specificity} = \frac{TN}{TN + FP}
-        \]
-        \item \textbf{Precision (Positive Predictive Value):} The proportion of positive predictions that are correct.
-        \[
-            \text{Precision} = \frac{TP}{TP + FP}
-        \]
-        \item \textbf{F1-score:} The harmonic mean of precision and recall, providing a balance between the two.
-        \[
-            \text{F1-score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
-        \]
-    \end{itemize}
-
-    Where:
-    \begin{itemize}
-        \item $TP$ = True Positives
-        \item $TN$ = True Negatives
-        \item $FP$ = False Positives
-        \item $FN$ = False Negatives
-    \end{itemize}
-
-    These metrics provide a comprehensive assessment of model performance, especially in medical contexts where both false positives and false negatives can have significant consequences~\cite{dl7}.
     \section{Deep Learning in Medicine}
     DL has revolutionized healthcare with applications such as:
 
@@ -396,25 +372,25 @@
     Skin cancer diagnosis has evolved from manual dermatoscopic examination to AI-driven analysis, with melanoma detection remaining a critical challenge due to its aggressive nature and high mortality if not detected early. Traditional diagnostic methods, while valuable, often suffered from subjectivity, inconsistency, and limited scalability. Early AI approaches, though promising, struggled with artifacts in dermoscopic images (such as hairs and gel bubbles) and were hampered by the scarcity of annotated data. The advent of deep learning—particularly convolutional neural networks (CNNs)—has enabled significant breakthroughs in automated lesion classification, though challenges in generalization and computational efficiency persist. This section reviews recent advancements, with a particular emphasis on the MelaNet framework for melanoma detection~\cite{lafraxo2022melanet}, while also referencing the broader context provided by Alenezi et al.~\cite{elgendi2023diagnostics}.
     
     \section{Overview of Recent Techniques}
-    
-    \subsection*{Evolution of Diagnostic Approaches}
-    
-    \textbf{Manual Feature Extraction (Pre-2015):}  
-    Early diagnosis relied on the ABCD rule (Asymmetry, Border, Color, Diameter), which, despite its clinical utility, was limited by subjectivity and inter-rater variability, yielding accuracy rates of 75–85\%.
-    
-    \textbf{Traditional Machine Learning:}  
-    Techniques such as Support Vector Machines (SVM) and Random Forests, using handcrafted features (texture, color histograms), improved accuracy to 80–90\% but required precise lesion segmentation and still struggled with generalization.
-    
-    \textbf{Deep Learning Revolution (2017–Present):}  
-    The introduction of CNNs, such as ResNet and DenseNet, enabled dermatologist-level accuracy by learning hierarchical features directly from raw images. More recently, Vision Transformers (ViTs) have enhanced global feature capture, and hybrid architectures combining CNNs with attention mechanisms have further improved performance.
-    
-    \subsection*{Key Technical Challenges}
-    
-    \begin{itemize}
-        \item \textbf{Artifact Sensitivity:} Dermoscopic images often contain artifacts (e.g., hairs, gel bubbles), which can reduce model accuracy by up to 68\%.
-        \item \textbf{Data Scarcity:} Medical datasets are typically small (e.g., ISIC 2017: 2,000 images), limiting the ability of deep models to generalize.
-        \item \textbf{Speed-Accuracy Tradeoff:} While ViTs offer improved accuracy, they require up to three times more computation than CNNs, impacting real-time applicability.
-    \end{itemize}
+        
+        \subsection*{Evolution of Diagnostic Approaches}
+        
+        \textbf{Manual Feature Extraction (Pre-2015):}  
+        Early diagnosis relied on the ABCD rule (Asymmetry, Border, Color, Diameter), which, despite its clinical utility, was limited by subjectivity and inter-rater variability, yielding accuracy rates of 75–85\%~\cite{dl14,dl15}.
+        
+        \textbf{Traditional Machine Learning:}  
+        Techniques such as Support Vector Machines (SVM)~\cite{dl7,dl14} and Random Forests, using handcrafted features (texture, color histograms), improved accuracy to 80–90\% but required precise lesion segmentation and still struggled with generalization~\cite{dl7,elgendi2023diagnostics}.
+        
+        \textbf{Deep Learning Revolution (2017–Present):}  
+        The introduction of CNNs, such as ResNet~\cite{dl6} and DenseNet~\cite{elgendi2023diagnostics}, enabled dermatologist-level accuracy by learning hierarchical features directly from raw images~\cite{dl5}. More recently, Vision Transformers (ViTs) have enhanced global feature capture, and hybrid architectures combining CNNs with attention mechanisms have further improved performance~\cite{elgendi2023diagnostics}.
+        
+        \subsection*{Key Technical Challenges}
+        
+        \begin{itemize}
+            \item \textbf{Artifact Sensitivity:} Dermoscopic images often contain artifacts (e.g., hairs, gel bubbles), which can reduce model accuracy by up to 68\%~\cite{lafraxo2022melanet,elgendi2023diagnostics}.
+            \item \textbf{Data Scarcity:} Medical datasets are typically small (e.g., ISIC 2017: 2,000 images~\cite{dl14,lafraxo2022melanet}), limiting the ability of deep models to generalize.
+            \item \textbf{Speed-Accuracy Tradeoff:} While ViTs offer improved accuracy, they require up to three times more computation than CNNs, impacting real-time applicability~\cite{elgendi2023diagnostics}.
+        \end{itemize}
     
     % \begin{center}
     %     \includegraphics[width=0.8\textwidth]{https://media.springernature.com/full/springer-static/image/art%253A10.1007%252Fs11042-022-12521-y/MediaObjects/11042_2022_12521_Fig4_HTML.png}
@@ -445,7 +421,6 @@
         - Geometric augmentation (rotation, flipping), L2 regularization ($\lambda=0.01$), and 50\% dropout during training.
     \end{itemize}
     
-    
     \subsection*{Experimental Validation and Comparative Results}
     
     MelaNet was validated on several benchmark datasets: ISBI 2017 (2,000 images), PH2 (200 images), and MED-NODE (170 images). The results are summarized in Table~\ref{tab:melanet_performance}.
@@ -472,10 +447,6 @@
         \item The framework reduced false negatives by 62\% compared to prior methods and demonstrated high robustness on non-dermoscopic images (MED-NODE: 87.77\% accuracy).
     \end{itemize}
     
-    \subsection*{Clinical Significance and Limitations}
-    
-    MelaNet’s high sensitivity is particularly important for melanoma detection, where missing a malignant lesion can have severe consequences. Its lightweight architecture enables deployment on standard hardware, making it suitable for teledermatology and point-of-care applications. However, the reliance on center-cropping may exclude peripheral features, and scalability to more than five lesion classes remains untested. Future work should explore integration with detection frameworks like YOLOv8, multi-institutional validation, and mobile deployment.
-    
     \section{Summary}
     
     MelaNet establishes a new benchmark for clinical AI tools in melanoma detection by integrating:
@@ -488,27 +459,39 @@
 
 \newpage
 
-\chapter{Proposed Solution: YOLOv8}
+\chapter{Used Solution: YOLOv8}
     
     \section{YOLOv8 Overview}
-    YOLOv8 is the latest evolution in the YOLO (You Only Look Once) family, designed for high-performance image classification and detection tasks. It features a unified architecture that supports classification, detection, and segmentation, with improvements in speed, accuracy, and flexibility. YOLOv8 leverages advanced neural network design, efficient data loading, and transfer learning, making it suitable for medical imaging applications where both accuracy and inference speed are critical~\cite{ultralytics23}. The model is easy to deploy and supports export to multiple formats (ONNX, TensorRT, etc.), facilitating integration into various platforms.
+    YOLOv8 is a recent and highly popular version in the YOLO (You Only Look Once) family, designed for high-performance image classification, detection, and segmentation tasks. While newer versions such as YOLOv9 have been released, YOLOv8 remains widely adopted for classification due to its balance of speed, accuracy, and ease of deployment~\cite{ultralytics23}. Studies and benchmarks have shown that YOLOv8 achieves state-of-the-art results in image classification, especially in medical imaging scenarios, thanks to its efficient architecture and support for transfer learning~\cite{ultralytics23,elgendi2023diagnostics}. The model supports export to multiple formats (ONNX, TensorRT, etc.), making it suitable for integration into diverse platforms.
     
     \section{Dataset}
-    The dataset used in this project was sourced from Roboflow\footnote{\url{https://universe.roboflow.com/bigdata-xv5t7/skin-9nkfv}} and is based on the HAM10000 collection~\cite{intro5}. It contains dermoscopic images categorized into four classes: melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus. The dataset was split into training, validation, and test sets, each organized into subfolders by class.
-    
+    The dataset used in this project was sourced from Roboflow~\cite{roboflow24} and is based on the HAM10000 collection~\cite{intro5}. It contains dermoscopic images categorized into four classes: melanoma, basal cell carcinoma (BCC), benign keratosis (BK), and benign nevus. The dataset was split into training, validation, and test sets, each organized into subfolders by class.
+
     \textbf{Dataset Structure:}
+    \begin{itemize}
+        \item \textbf{train/}: Images used for training the model (one subfolder per class)
+        \item \textbf{val/}: Images used for validation during training (one subfolder per class)
+        \item \textbf{test/}: Images used for final evaluation (one subfolder per class)
+    \end{itemize}
+
     \begin{center}
     \begin{tabular}{l}
     \texttt{Dataset/} \\
     \hspace{0.5cm}\texttt{|-- train/} \\
-    \hspace{1cm}\texttt{|   |-- Melanoma/} \\
-    \hspace{1cm}\texttt{|   |-- BCC/} \\
-    \hspace{1cm}\texttt{|   |-- SCC/} \\
-    \hspace{1cm}\texttt{|   `-- Nevus/} \\
+    \hspace{1cm}\texttt{   |-- Basal Cell Carcinoma/} \\
+    \hspace{1cm}\texttt{   |-- Benign Keratosis/} \\
+    \hspace{1cm}\texttt{   |-- Melanoma/} \\
+    \hspace{1cm}\texttt{   |-- Nevus/} \\
     \hspace{0.5cm}\texttt{|-- val/} \\
-    \hspace{1cm}\texttt{|   `-- ...} \\
+    \hspace{1cm}\texttt{|   |-- Basal Cell Carcinoma/} \\
+    \hspace{1cm}\texttt{|   |-- Benign Keratosis/} \\
+    \hspace{1cm}\texttt{|   |-- Melanoma/} \\
+    \hspace{1cm}\texttt{|   |-- Nevus/} \\
     \hspace{0.5cm}\texttt{`-- test/} \\
-    \hspace{1cm}\texttt{    `-- ...} \\
+    \hspace{1cm}\texttt{|   |-- Basal Cell Carcinoma/} \\
+    \hspace{1cm}\texttt{|   |-- Benign Keratosis/} \\
+    \hspace{1cm}\texttt{|   |-- Melanoma/} \\
+    \hspace{1cm}\texttt{|   |-- Nevus/} \\
     \end{tabular}
     \end{center}
     
@@ -516,15 +499,84 @@
     \begin{itemize}
         \item All images were resized to $640 \times 640$ pixels.
         \item Images were normalized and checked for quality.
-        \item Class balancing was performed to mitigate dataset imbalance.
     \end{itemize}
     
     \textbf{Augmentation:}
     \begin{itemize}
         \item Standard augmentations such as horizontal/vertical flips, rotations, and brightness adjustments were applied.
         \item No mosaic augmentation was used.
+        \item Custom augmentation pipeline was implemented to address dataset size limitations.
     \end{itemize}
     
+    \textbf{Detailed Augmentation Strategy:}
+
+    To significantly expand the training dataset and improve model generalization, a comprehensive augmentation pipeline was developed using Python's PIL library. The augmentation process was applied to all training images to increase dataset diversity and robustness.
+    
+    \textbf{Augmentation Techniques Applied:}
+    \begin{itemize}
+        \item \textbf{Horizontal Flip:} Images were flipped left-to-right to simulate different orientations of skin lesions
+        \item \textbf{Vertical Flip:} Images were flipped top-to-bottom for additional orientation variation
+        \item \textbf{Rotations:} Three rotation angles were applied:
+        \begin{itemize}
+            \item 90° rotation (clockwise)
+            \item 180° rotation (upside-down)
+            \item 270° rotation (counter-clockwise)
+        \end{itemize}
+        \item \textbf{Brightness Enhancement:} 20\% brightness increase was applied to improve contrast and lighting variations
+    \end{itemize}
+    
+    \textbf{Dataset Expansion Results:}
+    The augmentation process resulted in a significant expansion of the training dataset:
+    \begin{itemize}
+        \item \textbf{Original Training Images:} 9,053 images
+        \item \textbf{After Augmentation:} 63,371 images
+        \item \textbf{Expansion Factor:} 7× increase in training data
+    \end{itemize}
+    
+    This substantial increase in training data (from 9,053 to 63,371 images) provided several benefits:
+    \begin{itemize}
+        \item Enhanced model generalization capability
+        \item Reduced overfitting risk
+        \item Improved representation of minority classes
+        \item Better handling of various lesion orientations and lighting conditions
+    \end{itemize}
+    
+    \textbf{Implementation Details:}
+    
+    The augmentation pipeline was implemented using a custom Python function that processes each image in the dataset folder. The implementation leverages the PIL (Python Imaging Library) for efficient image processing operations:
+    
+    \newpage
+    \lstinputlisting[
+        caption={Custom augmentation pipeline implementation for dataset expansion},
+        language=Python,
+        backgroundcolor=\color{backcolour},
+        basicstyle=\ttfamily\small\color{black},
+        keywordstyle=\color{blue},
+        breaklines=true,
+        frame=single
+    ]{code/augment.txt}
+    
+    \textbf{Technical Rationale for Each Augmentation:}
+    \begin{itemize}
+        \item \textbf{Horizontal and Vertical Flips:} Skin lesions can appear in any orientation on the body. These transformations help the model become invariant to the position and orientation of lesions, improving its ability to classify lesions regardless of how they are captured.
+        
+        \item \textbf{Rotational Transformations:} The 90°, 180°, and 270° rotations simulate different camera angles and patient positioning during dermoscopic examination. This is particularly important as lesions may be photographed from various angles in clinical practice.
+        
+        \item \textbf{Brightness Enhancement:} Dermoscopic images can vary significantly in lighting conditions due to different devices, settings, or environmental factors. The 20\% brightness increase helps the model adapt to variations in image illumination, making it more robust to real-world imaging conditions.
+    \end{itemize}
+    
+    \textbf{Augmentation Strategy Benefits:}
+    \begin{itemize}
+        
+        \item \textbf{Clinical Relevance:} The augmentations simulate real-world variations that occur in clinical dermoscopy, making the trained model more applicable to diverse clinical scenarios.
+        
+        \item \textbf{Computational Efficiency:} Unlike more complex augmentation techniques (such as GANs or style transfer), these geometric and photometric transformations are computationally efficient and preserve the essential characteristics of skin lesions.
+    \end{itemize}
+    
+    The augmentation pipeline was applied offline before training, creating a permanent expanded dataset. This approach was chosen over real-time augmentation during training to ensure consistent results and reduce computational overhead during the training process.
+    
+    This augmentation strategy was crucial in achieving the high classification accuracy of 93.35\%, as it provided the model with diverse training examples that better represent real-world variations in dermoscopic images.
+
     \section{Model Training}
     The training was conducted on \href{https://lightning.ai/}{Lightning AI} using a T4 GPU, which provided efficient hardware acceleration. The YOLOv8m-cls model was selected for its balance between speed and accuracy. The training process was managed using the Ultralytics YOLOv8 Python API.
     
@@ -533,7 +585,7 @@
         \item \textbf{Task:} classify (image classification mode)
         \item \textbf{Model:} yolov8m-cls.pt (pretrained weights)
         \item \textbf{Dataset:} skin-1 (custom dermoscopic dataset)
-        \item \textbf{Epochs:} 50 (number of training cycles)
+        \item \textbf{Epochs:} 21 (number of training cycles)
         \item \textbf{Batch Size:} 16 (images per batch)
         \item \textbf{Image Size:} 640 (input image resolution)
         \item \textbf{Optimizer:} Adam (adaptive optimization)
@@ -549,10 +601,21 @@
     
     \textbf{Training Command:}
 
-    \begin{center}
-        \includegraphics[width=\textwidth,keepaspectratio]{code/train.png}
-        \captionof{figure}{Training command for YOLOv8 classification model.}
-    \end{center}
+    \lstinputlisting[
+        caption={Training command for YOLOv8 classification model},
+        language=python,
+        backgroundcolor=\color{backcolour},
+        basicstyle=\ttfamily\color{black},
+        keywordstyle=\color{blue},
+        breaklines=true,
+        frame=single
+    ]{code/train.txt}
+
+
+    % \begin{center}
+    %     \includegraphics[width=\textwidth,keepaspectratio]{code/train.png}
+    %     \captionof{figure}{Training command for YOLOv8 classification model.}
+    % \end{center}
 
     % \definecolor{backcolour}{rgb}{0.95,0.95,0.92} % Add this to your preamble if you want a background
     % \lstinputlisting[
@@ -563,19 +626,35 @@
     % ]{code/train.txt}
 
     \textbf{Validation Command:}
-
-    \begin{center}
-        \includegraphics[width=\textwidth,keepaspectratio]{code/validation.png}
-        \captionof{figure}{Validation command for YOLOv8 classification model.}
-    \end{center}
+    % \begin{center}
+    %     \includegraphics[width=\textwidth,keepaspectratio]{code/validation.png}
+    %     \captionof{figure}{Validation command for YOLOv8 classification model.}
+    % \end{center}
+    \lstinputlisting[
+        caption={Validation command for YOLOv8 classification model},
+        language=python,
+        backgroundcolor=\color{backcolour},
+        basicstyle=\ttfamily\color{black},
+        keywordstyle=\color{blue},
+        breaklines=true,
+        frame=single
+    ]{code/validation.txt}
 
     \textbf{Inference Command:}
+    % \begin{center}
+    %     \includegraphics[width=\textwidth,keepaspectratio]{code/inference.png}
+    %     \captionof{figure}{Inference command for YOLOv8 classification model.}
+    % \end{center}
+    \lstinputlisting[
+        caption={Validation command for YOLOv8 classification model},
+        language=python,
+        backgroundcolor=\color{backcolour},
+        basicstyle=\ttfamily\color{black},
+        keywordstyle=\color{blue},
+        breaklines=true,
+        frame=single
+    ]{code/inference.txt}
 
-    \begin{center}
-        \includegraphics[width=\textwidth,keepaspectratio]{code/inference.png}
-        \captionof{figure}{Inference command for YOLOv8 classification model.}
-    \end{center}
-    
     These commands were used to train, validate, and perform inference with the YOLOv8 classifier on the custom dermoscopic dataset.
         
     \textbf{Classification Task:}
@@ -584,59 +663,115 @@
         \item \textbf{No binary classification:} The focus was on multi-class performance.
     \end{itemize}
     
+    \section{Training Curves}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Pics/results.jpg}
+        \captionof{figure}{Training and Validation Accuracy/Loss Curves}
+    \end{center}
+
     \section{Evaluation Metrics}
-    To assess the model's performance, the following metrics were used:
+
+    In this section, we provide a detailed overview of the evaluation metrics used to assess the YOLOv8 classifier's performance on the skin lesion classification task. These metrics are critical for understanding the strengths and limitations of the model, especially in a medical context where both false positives and false negatives have significant implications.
+
+    \subsection*{1. Accuracy}
+    Accuracy measures the proportion of correctly classified samples among all samples:
+    \[
+        \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+    \]
+    \textbf{Result:} The YOLOv8 classifier achieved a test accuracy of \textbf{93.35\%}, indicating that the vast majority of test images were correctly classified.
+
+    \subsection*{2. Precision}
+    Precision quantifies the proportion of positive predictions that are actually correct for each class:
+    \[
+        \text{Precision} = \frac{TP}{TP + FP}
+    \]
+    \textbf{Result:} Per-class precision ranged from \textbf{0.88} (Benign Keratosis) to \textbf{0.99} (Melanoma), reflecting the model's reliability in minimizing false positives.
+
+    \subsection*{3. Recall (Sensitivity)}
+    Recall measures the proportion of actual positives that are correctly identified:
+    \[
+        \text{Recall} = \frac{TP}{TP + FN}
+    \]
+    \textbf{Result:} Per-class recall ranged from \textbf{0.84} (Benign Keratosis) to \textbf{0.96} (Basal Cell Carcinoma), showing the model's effectiveness in detecting true cases.
+
+    \subsection*{4. F1-score}
+    The F1-score is the harmonic mean of precision and recall, providing a balanced measure:
+    \[
+        \text{F1-score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+    \]
+    \textbf{Result:} The F1-score for Melanoma was \textbf{0.97}, and all classes had F1-scores above 0.86, indicating strong overall performance.
+    
+    Where:
     \begin{itemize}
-        \item \textbf{Accuracy:} Overall proportion of correctly classified images.
-        \item \textbf{Precision:} Proportion of true positives among predicted positives for each class.
-        \item \textbf{Recall:} Proportion of true positives among actual positives for each class.
-        \item \textbf{F1-score:} Harmonic mean of precision and recall.
-        \item \textbf{Confusion Matrix:} Visualization of true vs. predicted classes.
+        \item $TP$ = True Positives
+        \item $TN$ = True Negatives
+        \item $FP$ = False Positives
+        \item $FN$ = False Negatives
     \end{itemize}
     
-    \section{Results}
-    
-    \subsection*{Overall Performance}
-    The trained YOLOv8 model achieved:
-    \begin{itemize}
-        \item \textbf{Test Accuracy:} 93.35\%
-        \item \textbf{F1-score (Melanoma):} 0.97
-    \end{itemize}
-    
-    \subsection*{Classification Report}
-    \begin{verbatim}
-                          precision    recall  f1-score   support
+    \subsection*{5. Confusion Matrix}
+    The confusion matrix provides a detailed breakdown of true positives, false positives, false negatives, and true negatives for each class. It helps identify which classes are most often confused and highlights areas for improvement.
 
-Basal Cell Carcinoma       0.94      0.96      0.95       358
-    Benign Keratosis       0.88      0.84      0.86       223
-            Melanoma       0.99      0.94      0.97       362
-               Nevus       0.91      0.95      0.93       350
-
-            accuracy                           0.93      1293
-           macro avg       0.93      0.92      0.93      1293
-        weighted avg       0.93      0.93      0.93      1293
-    \end{verbatim}
-
-    \subsection*{Confusion Matrix}
     \begin{center}
         \includegraphics[width=0.7\textwidth]{Pics/confusion_matrix.png}
         \captionof{figure}{Confusion Matrix of YOLOv8 Classification Results}
     \end{center}
 
+    \subsection*{6. Macro and Weighted Averages}
+    Macro averages compute the metric independently for each class and then take the average, treating all classes equally. Weighted averages account for the number of samples per class, providing a more representative overall score in imbalanced datasets.
+
+    
+    \section{Results}
+    
+    \subsection*{Overall Performance}
+     The trained YOLOv8 model achieved:
+     \begin{itemize}
+          \item \textbf{Test Accuracy:} 93.35\%
+          \item \textbf{F1-score (Melanoma):} 0.97
+     \end{itemize}
+     
+    \subsection*{Summary Table of Results}
+    \begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lcccc}
+    \hline
+    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\
+    \hline
+    Basal Cell Carcinoma & 0.94 & 0.96 & 0.95 & 358 \\
+    Benign Keratosis     & 0.88 & 0.84 & 0.86 & 223 \\
+    Melanoma             & 0.99 & 0.94 & 0.97 & 362 \\
+    Nevus                & 0.91 & 0.95 & 0.93 & 350 \\
+    \hline
+    \textbf{Accuracy}    &      &      & \textbf{0.93} & 1293 \\
+    \textbf{Macro avg}   & 0.93 & 0.92 & 0.93 & 1293 \\
+    \textbf{Weighted avg}& 0.93 & 0.93 & 0.93 & 1293 \\
+    \hline
+    \end{tabular}
+    \caption{Detailed classification metrics for each class on the test set.}
+    \end{table}
+
+    \subsection*{Interpretation}
+    The high precision and recall for Melanoma and Basal Cell Carcinoma indicate the model's clinical utility in detecting the most critical lesion types. Slightly lower recall for Benign Keratosis suggests some confusion with other classes, but overall, the classifier demonstrates robust performance suitable for real-world deployment.
+    
+    \subsection*{Commentary on Results}
+    The classification report shows that the model performs strongly across all classes, with precision and recall values above 0.84 for each category. Melanoma, the most clinically significant class, achieves the highest F1-score (0.97), indicating excellent sensitivity and precision. Basal Cell Carcinoma and Nevus are also classified with high accuracy (F1-scores of 0.95 and 0.93, respectively). Benign Keratosis has slightly lower recall (0.84), suggesting some confusion with other classes, but overall performance remains robust. The macro and weighted averages confirm balanced performance, and the overall accuracy of 93.35\% demonstrates the model's reliability for real-world clinical use.
+
+    % \subsection*{Confusion Matrix}
+    % \begin{center}
+    %     \includegraphics[width=0.7\textwidth]{Pics/confusion_matrix.png}
+    %     \captionof{figure}{Confusion Matrix of YOLOv8 Classification Results}
+    % \end{center}
+
     \subsection*{Sample Predictions}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{Pics/result1.png}
-        \captionof{figure}{Sample predictions: True class and predicted class with confidence 0,75.}
-    \end{center}
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{Pics/result2.png}
-        \captionof{figure}{Sample predictions: True class and predicted class with confidence 1.}
+        \includegraphics[width=0.8\textwidth]{Pics/pred1.png}
+        \captionof{figure}{Sample predictions: True class and predicted class with confidence 0,54.}
     \end{center}
 
-    \subsection*{Training Curves}
     \begin{center}
-        \includegraphics[width=0.7\textwidth]{Pics/cnn1.png}
-        \captionof{figure}{Training and Validation Accuracy/Loss Curves}
+        \includegraphics[width=0.8\textwidth]{Pics/pred2.png}
+        \captionof{figure}{Sample predictions: True class and predicted class with confidence 1.}
     \end{center}
 
     \subsection*{Exported Model}
@@ -651,8 +786,7 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
 
 % End of Chapter 4
 
-\newpage
-
+    \newpage
     \section{Desktop GUI Application for Skin Lesion Classification}
 
     To facilitate practical and user-friendly deployment of the trained YOLOv8 classifier, we developed a standalone desktop application with a graphical user interface (GUI) using Python's Tkinter library. The GUI allows dermatologists and clinicians to easily upload dermoscopic images, run classification locally, and instantly view the predicted class, confidence score, and comparison with the true class label.
@@ -692,6 +826,18 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
 
     The full implementation is provided in the gui.py file. This approach ensures that the AI-powered skin lesion classifier is accessible, secure, and practical for real-world clinical use.
     
+    \newpage
+    \textbf{Sample Predictions in GUI:}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{Pics/result1.png}
+        \captionof{figure}{Sample predictions: True class and predicted class with confidence 0,75.}
+    \end{center}
+
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{Pics/result2.png}
+        \captionof{figure}{Sample predictions: True class and predicted class with confidence 1.}
+    \end{center}
+
 \chapter{Discussion}
 
     \section{Strengths of the Approach}
@@ -722,9 +868,6 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
     
     Despite the strengths, several challenges and limitations were encountered during the project:
     
-        \subsection*{Dataset Imbalance}
-        One of the primary challenges was the imbalance in the dataset, with certain classes (e.g., melanoma) being underrepresented compared to others (e.g., nevus). This imbalance can bias the model towards majority classes, potentially reducing sensitivity for rare but critical conditions. Although class balancing techniques and data augmentation were applied, perfect balance was not achievable due to the inherent nature of medical datasets.
-        
         \subsection*{Limited Dataset Size}
         The dataset, while based on the HAM10000 collection and expanded via Roboflow, still represents a limited sample of the diversity seen in real-world clinical practice. The model’s generalizability to images from different devices, populations, or acquisition conditions may be constrained.
         
@@ -741,8 +884,7 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
         Although training was performed on a T4 GPU via Lightning AI, resource limitations (such as GPU memory and training time) restricted the exploration of larger models or longer training schedules. In real-world deployments, hardware constraints may also limit the use of more complex architectures.
         
         \subsection*{Potential for Overfitting}
-        Given the limited dataset size and high model capacity, there is a risk of overfitting. Regularization techniques and careful monitoring of validation metrics were employed, but further validation on external datasets is recommended.
-    
+        Given the limited dataset size and high model capacity, there is a risk of overfitting. Careful monitoring of validation metrics was employed, but further validation on external datasets is recommended.
     \newpage
 
     \section{Insights and Lessons Learned}
@@ -781,10 +923,10 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
 
     \section*{Recap of Project Objectives and Achievements}
     
-    This project set out to develop an accurate and efficient classification system for skin lesions in dermoscopic images using deep learning, specifically leveraging the YOLOv8 framework. The main objectives included designing a robust multi-class classifier, addressing dataset challenges such as class imbalance, optimizing model performance, and providing a practical deployment solution for clinical use.
-    
+    This project set out to develop an accurate and efficient classification system for skin lesions in dermoscopic images using deep learning, specifically leveraging the YOLOv8 framework. The main objectives included designing a robust multi-class classifier, optimizing model performance, and providing a practical deployment solution for clinical use.
+        
     Through careful dataset preparation, model selection, and training with advanced augmentation and regularization techniques, the YOLOv8-based classifier achieved a high test accuracy of 93.35\% and an F1-score of 0.97 for melanoma. The integration of the trained model into a standalone desktop GUI application ensures accessibility, data privacy, and ease of use for clinicians, even in offline or resource-limited environments.
-    
+        
     \section*{Importance of the Results in the Context of Healthcare}
     
     The results of this work demonstrate the potential of modern deep learning models to significantly enhance the accuracy and efficiency of skin cancer diagnosis. Early and reliable detection of melanoma and other skin cancers is critical for improving patient outcomes and survival rates. By providing a fast, accurate, and user-friendly tool for dermatologists, this project contributes to reducing diagnostic errors, supporting clinical decision-making, and expanding access to advanced diagnostic technology.
@@ -894,6 +1036,8 @@ Basal Cell Carcinoma       0.94      0.96      0.95       358
 %  \bibitem[CNN]{cnnImg}
 %     \emph{\url{https://www.nomidl.com/computer-vision/how-to-build-a-convolutional-neural-network-for-computer-vision/}}
 
+\bibitem[Roboflow24]{roboflow24}
+ \emph{Roboflow. (2024). Skin Lesion Classification (HAM10000-based) Dataset. \url{https://universe.roboflow.com/bigdata-xv5t7/skin-9nkfv}.}
 
 \end{thebibliography}
 

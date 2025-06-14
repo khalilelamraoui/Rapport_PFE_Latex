@@ -1,0 +1,50 @@
+from ultralytics import YOLO
+import os
+from glob import glob
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the trained model
+model = YOLO(f"{HOME}/khalil_93/best.pt")
+
+# Test directory path
+test_dir = os.path.join(HOME, "skin-1", "test")
+
+# Collect all test images
+image_paths = glob(f"{test_dir}/**/*.jpg", recursive=True)  # Adjust extension if needed
+
+# Prepare lists for evaluation
+true_labels = []
+predicted_labels = []
+
+# Get class name to index mapping
+class_names = sorted(os.listdir(test_dir))  # class folder names
+name_to_index = {name: idx for idx, name in enumerate(class_names)}
+index_to_name = {idx: name for name, idx in name_to_index.items()}
+
+# Predict for each image
+for img_path in image_paths:
+    true_class = os.path.basename(os.path.dirname(img_path))
+    true_labels.append(name_to_index[true_class])
+
+    results = model.predict(img_path, verbose=False)
+    pred_idx = results[0].probs.top1
+    predicted_labels.append(pred_idx)
+
+# Compute accuracy
+acc = accuracy_score(true_labels, predicted_labels)
+print(f"\n✅ Test Accuracy: {acc * 100:.2f}%\n")
+
+# Print classification report
+print("📊 Classification Report:")
+print(classification_report(true_labels, predicted_labels, target_names=class_names))
+
+# Plot confusion matrix
+cm = confusion_matrix(true_labels, predicted_labels)
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt="d", xticklabels=class_names, yticklabels=class_names, cmap="Blues")
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.title("Confusion Matrix")
+plt.show()
