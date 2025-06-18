@@ -1,0 +1,1 @@
+!yolo export model={HOME}/runs/classify/train/weights/best.pt format=pt
